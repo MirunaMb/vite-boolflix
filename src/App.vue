@@ -1,21 +1,18 @@
 <script>
 import axios from 'axios';
+import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
 
 export default {
-  data() {
-    return {
-      title: "Hello world"
-    }
-  }
-
-  // components: {
-  //   MyComponent,
-  // },
+  components: {AppHeader, AppMain },
 };
 </script>
 
 <template>
-  <h1>{{ title }}</h1>
+ <AppHeader />
+ <AppMain />
+
+ <h1></h1>
 </template>
 
 <style lang="scss" >
