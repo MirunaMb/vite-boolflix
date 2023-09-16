@@ -1,16 +1,16 @@
 <script>
+import { store } from './data/store.js';
 import axios from 'axios';
 
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 
 export default {
-  data(){
-    return{
-      movies: [],
-    }
-  },
-
+  // data(){
+  //   return{
+  //     store,
+  //   }
+  // },
   components: {AppHeader, AppMain },
 
   methods:{
@@ -22,9 +22,17 @@ export default {
     },
    })
    .then((response) => {
-    console.log(response.data.results);
-
-    this.movies = response.data.results;
+    const moviesData = response.data.results.map((movie) => {
+      const {id,title, original_title, original_language, vote_average } = movie;
+      return {
+         id,
+         name: title, 
+         original_title,
+         language: original_language, 
+         vote: Math.ceil(vote_average / 2),
+         };
+    });
+    store.movies = moviesData;
    });
     },
   },
@@ -37,15 +45,6 @@ export default {
 
 <template>
  <AppHeader @start-search="fetchMovies" />
-<ul>
-  <li v-for="movie in movies" :key="movie.id">
-    {{ movie.title}}
-    {{ movie.origina_title}}
-    {{ movie.original_language}}
-    {{ movie.vote_average }}
-  </li>
-</ul>
-
  <AppMain />
 
  <h1></h1>
