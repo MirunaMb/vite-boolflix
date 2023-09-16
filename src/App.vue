@@ -34,6 +34,25 @@ export default {
     });
     store.movies = moviesData;
    });
+   axios.get('https://api.themoviedb.org/3/search/tv', {
+    params: {
+      query: term,
+      api_key: '2fabe095899fa13a525a342e2dfbb209',
+    },
+   })
+   .then((response) => {
+    const tvSeriesData =response.data.results.map((tvSeries) => {
+      const {id,name,original_name,original_language,vote_average }= tvSeries;
+      return{
+        id,
+        name,
+        original_name: original_name,
+        language: original_language,
+        vote: Math.ceil(vote_average / 2),
+      };
+    });
+    store.tvSeries = tvSeriesData;
+   })
     },
   },
 
