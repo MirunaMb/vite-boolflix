@@ -23,13 +23,14 @@ export default {
    })
    .then((response) => {
     const moviesData = response.data.results.map((movie) => {
-      const {id,title, original_title, original_language, vote_average } = movie;
+      const {id,title, original_title, original_language, vote_average,poster_path } = movie;
       return {
          id,
          name: title, 
          original_title,
          language: original_language, 
          vote: Math.ceil(vote_average / 2),
+         posterPath: poster_path,
          };
     });
     store.movies = moviesData;
@@ -42,13 +43,14 @@ export default {
    })
    .then((response) => {
     const tvSeriesData =response.data.results.map((tvSeries) => {
-      const {id,name,original_name,original_language,vote_average }= tvSeries;
+      const {id,name,original_name,original_language,vote_average,poster_path }= tvSeries;
       return{
         id,
         name,
         original_name: original_name,
         language: original_language,
         vote: Math.ceil(vote_average / 2),
+        posterPath: poster_path,
       };
     });
     store.tvSeries = tvSeriesData;
