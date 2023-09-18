@@ -19,17 +19,26 @@ export default {
 
       return fullImageUrl;
     },
+    getStarClass(n){
+      return n <= this.cardInfo.vote ? 'fa-solid fa-star' : 'fa-regular fa-star';
+    }
   },
 };
 </script>
 <template>
   <div class="card">
     <div class="card-body">
-      {{ cardInfo.name }}
-      {{ cardInfo.original_title }}
-      {{ cardInfo.vote }}
-      <img :src="'/src/assets/img/' + cardInfo.language + '.png'" :alt="cardInfo.language">
-      <img :src="generateImageUrl(cardInfo.posterPath)" :alt="cardInfo.language">
+      <ul>
+      <li>  {{ cardInfo.name }}</li>
+      <li>{{ cardInfo.original_title }}</li>
+      <li> {{ cardInfo.vote }}</li>
+      <li><img :src="'/src/assets/img/' + cardInfo.language + '.png'" :alt="cardInfo.language"></li>
+      <li>
+       <!-- anche se nel file main.js le abbiamo rinominate per aggiungerle nella libreria ,dobbiamo mettere il nome come sulla doc di FontAwesome,vue.js -->
+       <font-awesome-icon :icon="getStarClass(n)" v-for="n in 5"/>
+      </li>
+      <li><img :src="generateImageUrl(cardInfo.posterPath)" :alt="cardInfo.language"></li>
+     </ul>
     </div>
   </div>
 </template>

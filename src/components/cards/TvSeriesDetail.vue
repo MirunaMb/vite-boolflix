@@ -20,6 +20,9 @@ export default {
 
       return fullImageUrl;
     },
+    getStarClass(n){
+      return n <= this.tvSeriesInfo.vote ? 'fa-solid fa-star' : 'fa-regular fa-star';
+    }
   },
 };
 </script>
@@ -27,11 +30,12 @@ export default {
 <template>
 <div class="card">
     <div class="card-body">
-      {{ tvSeriesInfo.name  }}
-      {{ tvSeriesInfo.original_name}}
-      <img :src="'/src/assets/img/' + tvSeriesInfo.language + '.png'" :alt="tvSeriesInfo.language">
-      {{ tvSeriesInfo.vote }}
-      <img :src="generateImageUrl(tvSeriesInfo.posterPath)" :alt="tvSeriesInfo.language">
+      <li>{{ tvSeriesInfo.name  }}</li>
+     <li> {{ tvSeriesInfo.original_name}}</li>
+      <li><img :src="'/src/assets/img/' + tvSeriesInfo.language + '.png'" :alt="tvSeriesInfo.language"></li>
+     <li>{{ tvSeriesInfo.vote }}</li>
+     <font-awesome-icon :icon="getStarClass(n)" v-for="n in 5"/>
+     <li> <img :src="generateImageUrl(tvSeriesInfo.posterPath)" :alt="tvSeriesInfo.language"></li>
     </div>
   </div>
 </template>
