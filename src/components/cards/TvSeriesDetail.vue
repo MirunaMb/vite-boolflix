@@ -57,8 +57,10 @@ export default {
             <li>Titolo originale: {{ tvSeriesInfo.original_name }}</li>
             <li>Voto: {{ tvSeriesInfo.vote }}</li>
             <li><img :src="'/src/assets/img/' + tvSeriesInfo.language + '.png'" :alt="tvSeriesInfo.language"></li>
-            <li v-for="n in 5">
-              <font-awesome-icon :icon="getStarClass(n)" />
+            <li>
+              <div class="stars">
+                <font-awesome-icon v-for="n in 5" :key="n" :icon="getStarClass(n)" />
+              </div>
             </li>
 
           </ul>
@@ -81,12 +83,10 @@ export default {
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  position: relative;
+  padding-top: 150px;
 }
 
-.poster-container,
-.info-container {
+.poster-container {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -101,6 +101,11 @@ export default {
 .info-container div {
   max-width: 100%;
   max-height: 100%;
+}
+
+.info-container {
+  display: flex;
+
 }
 
 .hovered {
@@ -125,7 +130,5 @@ export default {
   padding: 0;
   list-style: none;
   display: flex;
-  justify-content: flex-end;
-
 }
 </style>

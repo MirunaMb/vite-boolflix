@@ -65,7 +65,7 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-  width: 300px;
+  width: 100%;
   height: 450px;
 }
 
@@ -92,8 +92,8 @@ export default {
 
 .poster-container img,
 .info-container div {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .info-container {
@@ -105,6 +105,7 @@ export default {
   transform: rotateY(360deg);
   background-color: #fff;
   transform-style: preserve-3d;
+  background-color: black;
 }
 
 .hovered div {

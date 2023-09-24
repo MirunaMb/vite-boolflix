@@ -2,17 +2,22 @@
 import TvSeriesList from './cards/TvSeriesList.vue';
 import CardsList from './cards/CardsList.vue';
 export default {
-  
-  components: {CardsList, TvSeriesList },
+
+  components: { CardsList, TvSeriesList },
 };
 </script>
 
 <template>
- <div class="container mt-5">
+  <div class="wrapper mt-5">
     <CardsList />
     <TvSeriesList />
 
- </div>
+  </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+</style>
