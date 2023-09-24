@@ -17,6 +17,9 @@ export default {
 </script>
 
 <template>
+  <div>
+    <h1 class="title">Grandi film, serie TV di successo e tanto altro.Lista proiezioni : </h1>
+  </div>
   <div class="wrapper-carousel">
     <div class="card-carousel">
       <CardDetail v-for="movie in store.movies" :key="movie.id" :cardInfo="movie" class="card-item" />
@@ -30,7 +33,7 @@ export default {
   overflow: scroll;
   position: absolute;
   left: 700px;
-  top: 300px;
+  top: 150px;
 }
 
 .card-carousel {
@@ -46,5 +49,11 @@ export default {
 .card-item {
   width: 250px;
   margin-right: 10px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  color: aliceblue;
 }
 </style>

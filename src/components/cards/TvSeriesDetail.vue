@@ -72,8 +72,9 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-  width: 300px;
+  width: 100%;
   height: 450px;
+  border-color: rgb(102, 30, 30);
 }
 
 .card-body {
@@ -99,8 +100,8 @@ export default {
 
 .poster-container img,
 .info-container div {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .info-container {
@@ -112,6 +113,7 @@ export default {
   transform: rotateY(360deg);
   background-color: #fff;
   transform-style: preserve-3d;
+  background-color: black;
 }
 
 .hovered div {
@@ -126,9 +128,16 @@ export default {
 }
 
 .hovered li {
-  margin: 0;
-  padding: 0;
+  margin: 5px;
+  padding: 5px;
   list-style: none;
   display: flex;
+  color: aliceblue;
+}
+
+.stars {
+  display: flex;
+  flex-direction: row-reverse;
+  color: #f7ce08
 }
 </style>

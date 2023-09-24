@@ -8,7 +8,7 @@ export default {
 </script>
 
 <template>
-  <div class="wrapper mt-5">
+  <div class="wrapper">
     <CardsList />
     <TvSeriesList />
 
@@ -19,5 +19,7 @@ export default {
 .wrapper {
   width: 100%;
   position: relative;
+  height: 200vh;
+  background-color: black;
 }
 </style>
